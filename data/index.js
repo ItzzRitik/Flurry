@@ -1,6 +1,10 @@
 import faker from '@faker-js/faker';
 
-export const users = Array(10).fill(0).map(() => {
+let session = {},
+	users = [],
+	todo = [];
+
+users = Array(3).fill(0).map(() => {
 	const firstName = faker.name.firstName(),
 		lastName = faker.name.lastName();
 	return {
@@ -11,13 +15,16 @@ export const users = Array(10).fill(0).map(() => {
 	};
 });
 
-export const todo = Array(300).fill(0).map(() => {
+todo = Array(30).fill(0).map(() => {
 	return {
 		todo: faker.lorem.sentence(),
-		priority: faker.random.arrayElement(['high', 'medium', 'low']),
+		priority: ['high', 'medium', 'low'][Math.floor(Math.random() * 3)],
 		dueDate: faker.date.soon(10),
-		createdBy: faker.random.arrayElement(users).username,
-		assignedTo: faker.random.arrayElement(users).username
+		createdBy: users[Math.floor(Math.random() * users.length)].username,
+		assignedTo: users[Math.floor(Math.random() * users.length)].username
 	};
 });
 
+session = users.find((user) => todo.filter(({ assignedTo, createdBy }) => assignedTo === user.username || createdBy === user.username).length > 5);
+
+export { users, todo, session };

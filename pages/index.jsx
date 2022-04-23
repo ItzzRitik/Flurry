@@ -1,28 +1,23 @@
-import { useEffect, useMemo } from 'react';
 
 import moment from 'moment';
-import { useDispatch } from 'react-redux';
 
 import Add from '../assets/icons/add.svg';
+import Loader from '../components/panels/Loader';
 import TodoCard from '../components/panels/todo/TodoCard';
-import { populateTodo } from '../data/redux/todoReducer';
 import styles from '../styles/dashboard.module.scss';
-import { useTodo, useSession, useUsers } from '../utils/fetcher';
+import { useTodo, useSession } from '../utils/fetcher';
 
 export default function Dashboard () {
-	const dispatch = useDispatch(),
-
-		todo = useTodo(),
+	const todo = useTodo(),
 		session = useSession(),
-		users = useUsers(),
 
-		assignedToUser = useMemo(() => todo.filter?.((todo) => todo.assignedTo === session.username), [todo, session]),
-		createdByUser = useMemo(() => todo.filter?.((todo) => todo.createdBy === session.username), [todo, session]),
-		reminders = useMemo(() => todo.filter?.((todo) => (-moment().diff(moment(todo.dueDate), 'days') < 2)), [todo]);
+		assignedToUser = todo.filter?.((todo) => todo.assignedTo === session.username),
+		createdByUser = todo.filter?.((todo) => todo.createdBy === session.username),
+		reminders = todo.filter?.((todo) => (-moment().diff(moment(todo.dueDate), 'days') < 2));
 
-	useEffect(() => {
-		fetch('/api/getTodo').then((res) => res.json().then((data) => dispatch(populateTodo(data))));
-	}, [dispatch, users]);
+	if (!todo.length) {
+		return <Loader fullPage />;
+	}
 
 	return (
 		<div className={styles.dashboard}>

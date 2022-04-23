@@ -1,22 +1,14 @@
-import { useEffect, useState } from 'react';
-
-import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 import Button from '../components/base/Button';
 import AddTodo from '../components/panels/add/AddTodo';
 import TodoItem from '../components/panels/todo/TodoItem';
-import { populateTodo } from '../data/redux/todoReducer';
 import styles from '../styles/allTodo.module.scss';
 import { useTodo } from '../utils/fetcher';
 
 export default function AllTodo () {
 	const [showTodoModal, setShowTodoModal] = useState(false),
-		dispatch = useDispatch(),
 		todo = useTodo();
-
-	useEffect(() => {
-		fetch('/api/getTodo').then((res) => res.json().then((data) => dispatch(populateTodo(data))));
-	}, [dispatch]);
 
 	return (
 		<div className={styles.allTodo}>

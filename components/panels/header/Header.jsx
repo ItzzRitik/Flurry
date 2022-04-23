@@ -13,7 +13,7 @@ export default function Header () {
 		onBack = () => {
 			router.push('/');
 		};
-	console.log(router.pathname);
+
 	return (
 		<div className={styles.header}>
 			<div className={`${styles.back} ${router.pathname === '/' ? styles.disable : ''}`} onClick={onBack}>

@@ -33,7 +33,7 @@ export default function TodoItem ({ item, type }) {
 				type === 'compact' &&
 				<div className={styles.footer}>
 					<span className={styles.priority} style={priorityStyle}>{item.priority}</span>
-					<Avatar user={users.find((user) => user.username === item.assignedTo)} />
+					<Avatar user={users.find?.((user) => user.username === item.assignedTo)} />
 				</div>
 			}
 		</div>

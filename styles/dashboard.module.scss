@@ -3,12 +3,16 @@
 
 	flex: 1;
 	display: flex;
-	padding: 14vh 0 14vh 10vw;
+	padding: 14vh 10vw;
 	overflow: scroll;
 
 	> .allTodo {
 		min-width: 400px;
 		margin-right: var(--gridGap);
+
+		> div {
+			padding-top: 30px;
+		}
 	}
 
 	> .todoGroups {
