@@ -1,0 +1,20 @@
+[
+	{
+		"todo": "todo1",
+		"priority": "high",
+		"dueDate": "2020-01-01",
+		"assignedTo": "user1"
+	},
+	{
+		"todo": "todo1",
+		"priority": "high",
+		"dueDate": "2020-01-01",
+		"assignedTo": "user1"
+	},
+	{
+		"todo": "todo1",
+		"priority": "high",
+		"dueDate": "2020-01-01",
+		"assignedTo": "user1"
+	}
+]
