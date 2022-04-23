@@ -1,22 +1,25 @@
-import useSWR from 'swr';
+import { useMemo } from 'react';
 
 import TodoCard from '../components/panels/todo/TodoCard';
+import { useTodoQuery, useSessionQuery } from '../data/redux/api';
 import styles from '../styles/dashboard.module.scss';
-import { fetcher } from '../utils/helpers/fetcher';
 
 export default function Dashboard () {
-	const { data: todoData } = useSWR('/api/getTodo', fetcher),
-		{ data: users } = useSWR('/api/getUsers', fetcher),
-		{ data: session } = useSWR('/api/getSession', fetcher);
+	const { data: todo = [] } = useTodoQuery(),
+		{ data: session = {} } = useSessionQuery(),
+
+		assignedToUser = useMemo(() => todo.filter((todo) => todo.assignedTo === session.username), [todo, session]),
+		createdByUser = useMemo(() => todo.filter((todo) => todo.assignedTo === session.username), [todo, session]),
+		reminders = useMemo(() => todo.filter((todo) => todo.dueDate === new Date()), [todo]);
 
 	return (
 		<div className={styles.dashboard}>
-			<TodoCard className={styles.allTodo} items={todoData} />
+			<TodoCard className={styles.allTodo} items={todo} />
 			<div className={styles.todoGroups}>
-				<TodoCard groupName='Assigned to you' items={todoData.filter(({ assignedTo }) => assignedTo === session.userName)} />
-				<TodoCard groupName='created by you' />
-				<TodoCard groupName='reminders' />
-				<TodoCard groupName='routine' />
+				<TodoCard groupName='Assigned to you' items={assignedToUser} />
+				<TodoCard groupName='created by you' items={createdByUser} />
+				<TodoCard groupName='reminders' items={reminders} />
+				<TodoCard groupName='routine' items={todo} />
 			</div>
 		</div>
 	);

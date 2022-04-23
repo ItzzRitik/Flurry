@@ -1,6 +1,6 @@
-import todoList from '../../data/todoList.js';
+import { todo } from '../../data';
 
 export default function handler (req, res) {
-	console.log(todoList);
-	res.status(200).json(todoList);
+	console.log(todo);
+	res.status(200).json(todo);
 }
