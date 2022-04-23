@@ -1,0 +1,28 @@
+{
+  "name": "flurry",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "next": "12.1.5",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "sass": "^1.50.1"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^6.2.1",
+    "eslint": "8.14.0",
+    "eslint-config-next": "12.1.5",
+    "eslint-plugin-react-hooks": "^4.4.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "stylelint": "^14.7.1",
+    "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint-order": "^5.0.0"
+  }
+}

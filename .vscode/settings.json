@@ -1,0 +1,17 @@
+{
+    "css.validate": false,
+	"less.validate": false,
+	"scss.validate": false,
+    "typescript.validate.enable": false,
+	"files.eol": "\n",
+	"stylelint.validate": ["css", "scss"],
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true,
+		"source.fixAll.stylelint": true
+	},
+    
+    "cSpell.words": [
+        "stylelint",
+        "svgr"
+    ]
+}
