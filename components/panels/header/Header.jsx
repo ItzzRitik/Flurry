@@ -11,13 +11,12 @@ export default function Header () {
 		session = useSession(),
 
 		onBack = () => {
-			console.log('back');
 			router.push('/');
 		};
-
+	console.log(router.pathname);
 	return (
 		<div className={styles.header}>
-			<div className={styles.back} onClick={onBack}>
+			<div className={`${styles.back} ${router.pathname === '/' ? styles.disable : ''}`} onClick={onBack}>
 				<Back className={styles.icon} />
 				<p>Home</p>
 			</div>
