@@ -6,5 +6,8 @@ module.exports = {
 			use: ['@svgr/webpack']
 		});
 		return config;
+	},
+	images: {
+		domains: ['source.unsplash.com']
 	}
 };
