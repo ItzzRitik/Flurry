@@ -8,10 +8,10 @@ export default function TodoCard ({ className, groupName = 'all todo', items = [
 
 	return (
 		<div className={classList}>
-			<h3 className={styles.title}>{groupName}</h3>
+			<h3 className={styles.title}>{groupName} ({items.length})</h3>
 			<div className={styles.todoList}>
 				{
-					items.map((item, index) => (
+					items.map?.((item, index) => (
 						<TodoItem key={index} item={item} type={type} />
 					))
 				}

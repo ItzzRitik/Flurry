@@ -15,7 +15,7 @@ export const todo = Array(300).fill(0).map(() => {
 	return {
 		todo: faker.lorem.sentence(),
 		priority: faker.random.arrayElement(['high', 'medium', 'low']),
-		dueDate: faker.datatype.boolean() ? faker.date.soon() : faker.date.future(),
+		dueDate: faker.date.soon(10),
 		createdBy: faker.random.arrayElement(users).username,
 		assignedTo: faker.random.arrayElement(users).username
 	};
