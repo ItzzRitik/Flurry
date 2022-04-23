@@ -11,7 +11,8 @@
 	},
     
     "cSpell.words": [
-        "stylelint",
-        "svgr"
-    ]
+		"keyframes",
+		"stylelint",
+		"svgr"
+	]
 }

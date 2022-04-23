@@ -1,5 +1,5 @@
 {
-	"plugins": ["unused-imports", "react-hooks"],
+	"plugins": ["unused-imports"],
 	"extends": "next/core-web-vitals",
 	"env": { "browser": true, "node": true, "es6": true },
 	"rules": {
