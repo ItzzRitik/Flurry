@@ -3,7 +3,10 @@
 	height: 100%;
 	background: var(--colorBackgroundPrimary);
 	border-radius: 20px;
+	display: flex;
+	flex-direction: column;
 	padding: 20px;
+	overflow: hidden;
 
 	> .title {
 		text-transform: capitalize;
@@ -12,5 +15,23 @@
 		padding-bottom: 10px;
 		border-bottom: 1px solid var(--colorBorderPrimary);
 		user-select: none;
+		cursor: pointer;
+		transition: transform 0.1s ease-out;
+
+		&:hover {
+			transform: translateX(10px);
+		}
+	}
+
+	> .todoList {
+		flex: 1;
+		overflow-y: scroll;
+		scroll-behavior: smooth;
+		scrollbar-width: none;
+		padding-top: 30px;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
 	}
 }

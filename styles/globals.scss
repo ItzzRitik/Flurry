@@ -14,8 +14,9 @@ html {
 	--colorContentPrimaryDark: #EEE;
 
 	// Other Colors
-	--colorAccentRGB: 127 81 255;
+	--colorAccentRGB: 158 0 255;
 	--colorAccent: rgb(var(--colorAccentRGB));
+	--colorAccentLight: #DE59FF;
 
 	// Size
 	--headerThickness: 70px;
@@ -35,7 +36,7 @@ body {
 
 	::selection {
 		color: white;
-		background: var(--colorAccent);
+		background: var(--colorAccentLight);
 	}
 }
 

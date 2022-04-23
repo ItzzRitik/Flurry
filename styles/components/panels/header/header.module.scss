@@ -41,40 +41,4 @@
 			transform: scale(0.95);
 		}
 	}
-
-	> .avatar {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-
-		> .userName {
-			font-size: 14px;
-			font-weight: 400;
-		}
-
-		> span {
-			position: relative !important;
-			width: var(--headerThickness) !important;
-			height: var(--headerThickness) !important;
-			padding: 18px !important;
-			overflow: hidden !important;
-			cursor: pointer;
-
-			> img {
-				position: relative !important;
-				width: 100% !important;
-				height: 100% !important;
-				border-radius: 999px !important;
-				transition: transform 0.2s ease-out !important;
-			}
-		}
-
-		&:hover {
-			> span {
-				> img {
-					transform: scale(1.1);
-				}
-			}
-		}
-	}
 }

@@ -1,8 +1,8 @@
-import Image from 'next/image';
 
 import Back from '../../../assets/icons/back.svg';
 import styles from '../../../styles/components/panels/header/header.module.scss';
 import { useSession } from '../../../utils/fetcher';
+import Avatar from './Avatar';
 
 export default function Header () {
 	const session = useSession();
@@ -13,10 +13,7 @@ export default function Header () {
 				<Back className={styles.icon} />
 				<p>Home</p>
 			</div>
-			<div className={styles.avatar}>
-				<p className={styles.userName}>{session.name}</p>
-				{session.avatar && <Image alt='avatar' src={session.avatar} layout='fill' />}
-			</div>
+			<Avatar user={session} />
 		</div>
 	);
 }

@@ -1,3 +1,64 @@
-.allTodo {
+.todoItem {
+	font-size: 14px;
+	padding-bottom: 40px;
 
+	> .content {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+
+		> span {
+			min-width: 18px;
+			min-height: 18px;
+			box-sizing: border-box;
+			margin-right: 10px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 4px;
+			border: 1px solid rgb(var(--colorAccentRGB) / 30%);
+
+			&::after {
+				content: '';
+				display: block;
+				width: 8px;
+				height: 8px;
+				background: var(--colorAccent);
+			}
+		}
+
+		> p {
+			font-weight: 500;
+			margin: 0 0 20px;
+		}
+	}
+
+	> .footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		> .priority {
+			height: fit-content;
+			padding: 2px 10px;
+			box-sizing: border-box;
+			border-radius: 5px;
+			text-transform: capitalize;
+			font-size: 12px;
+		}
+
+		> div {
+			> p {
+				font-size: 12px;
+				font-weight: 400;
+				margin: 0 10px 0 0;
+			}
+
+			> span {
+				width: 28px !important;
+				height: 28px !important;
+				padding: 0 !important;
+			}
+		}
+	}
 }

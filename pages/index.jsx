@@ -2,6 +2,7 @@ import { useEffect, useMemo } from 'react';
 
 import { useDispatch } from 'react-redux';
 
+import Add from '../assets/icons/add.svg';
 import TodoCard from '../components/panels/todo/TodoCard';
 import { populateTodo } from '../data/redux/todoReducer';
 import styles from '../styles/dashboard.module.scss';
@@ -22,15 +23,18 @@ export default function Dashboard () {
 		fetch('/api/getTodo').then((res) => res.json().then((data) => dispatch(populateTodo(data))));
 	}, [dispatch, users]);
 
-	console.log(todo);
 	return (
 		<div className={styles.dashboard}>
-			<TodoCard className={styles.allTodo} items={todo} />
+			<TodoCard className={styles.allTodo} items={todo} type='compact' />
 			<div className={styles.todoGroups}>
 				<TodoCard groupName='Assigned to you' items={assignedToUser} />
 				<TodoCard groupName='created by you' items={createdByUser} />
 				<TodoCard groupName='reminders' items={reminders} />
 				<TodoCard groupName='routine' items={todo} />
+				<div className={styles.create}>
+					<Add />
+					<p>Create Group</p>
+				</div>
 			</div>
 		</div>
 	);
