@@ -1,0 +1,38 @@
+.allTodo {
+	position: relative;
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+
+	> .container {
+		position: relative;
+		width: 80%;
+		background: var(--colorBackgroundPrimary);
+		overflow: hidden;
+		border-radius: 15px;
+
+		> .header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 10px 20px;
+
+			> .title {
+				margin: 0;
+			}
+		}
+
+		> .todoList {
+			flex: 1;
+			overflow-y: scroll;
+			scroll-behavior: smooth;
+			scrollbar-width: none;
+			padding-top: 30px;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+		}
+	}
+}

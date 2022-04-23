@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Head from 'next/head';
 import { Provider } from 'react-redux';
 
-import Header from '../components/panels/header/Header';
+import Header from '../components/panels/header/Header.jsx';
 import { store } from '../data/redux/store';
 import '../styles/globals.scss';
 
