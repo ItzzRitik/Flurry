@@ -1,17 +1,28 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
+
+import { useDispatch } from 'react-redux';
 
 import TodoCard from '../components/panels/todo/TodoCard';
-import { useTodoQuery, useSessionQuery } from '../data/redux/api';
+import { populateTodo } from '../data/redux/todoReducer';
 import styles from '../styles/dashboard.module.scss';
+import { useTodo, useSession, useUsers } from '../utils/fetcher';
 
 export default function Dashboard () {
-	const { data: todo = [] } = useTodoQuery(),
-		{ data: session = {} } = useSessionQuery(),
+	const dispatch = useDispatch(),
 
-		assignedToUser = useMemo(() => todo.filter((todo) => todo.assignedTo === session.username), [todo, session]),
-		createdByUser = useMemo(() => todo.filter((todo) => todo.assignedTo === session.username), [todo, session]),
-		reminders = useMemo(() => todo.filter((todo) => todo.dueDate === new Date()), [todo]);
+		todo = useTodo(),
+		session = useSession(),
+		users = useUsers(),
 
+		assignedToUser = useMemo(() => todo.filter?.((todo) => todo.assignedTo === session.username), [todo, session]),
+		createdByUser = useMemo(() => todo.filter?.((todo) => todo.assignedTo === session.username), [todo, session]),
+		reminders = useMemo(() => todo.filter?.((todo) => todo.dueDate === new Date()), [todo]);
+
+	useEffect(() => {
+		fetch('/api/getTodo').then((res) => res.json().then((data) => dispatch(populateTodo(data))));
+	}, [dispatch, users]);
+
+	console.log(todo);
 	return (
 		<div className={styles.dashboard}>
 			<TodoCard className={styles.allTodo} items={todo} />

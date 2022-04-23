@@ -1,11 +1,11 @@
 import Image from 'next/image';
 
 import Back from '../../../assets/icons/back.svg';
-import { useSessionQuery } from '../../../data/redux/api';
 import styles from '../../../styles/components/panels/header/header.module.scss';
+import { useSession } from '../../../utils/fetcher';
 
 export default function Header () {
-	const { data: session = {} } = useSessionQuery();
+	const session = useSession();
 
 	return (
 		<div className={styles.header}>
